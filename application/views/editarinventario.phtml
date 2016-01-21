@@ -1,0 +1,59 @@
+<br>
+Panel de Administración del Inventario, Busque Por Piso y Aula
+<?php
+$idpiso = "";
+$idaula = "";
+$idinventario = "";
+
+
+function getPosts()
+{
+    $posts = array();
+    $posts[0] = $_POST['idpiso'];
+    $posts[1] = $_POST['idaula'];
+    $posts[2] = $_POST['idinventario'];
+    return $posts;
+}
+
+// Search
+
+if(isset($_POST['search']))
+{
+    getPosts();
+    $data = getPosts();
+    $piso=$data[0];
+    $aula=$data[1];
+    //
+    $BuscarInventario=$this->bnmodel->AdmInventario($piso,$aula);
+    $idpiso=$piso;
+    $idaula=$aula;
+    $idinventario=$BuscarInventario->inventario;
+}
+
+if(isset($_POST['update']))
+{
+    getPosts();
+    $data = getPosts();
+    $piso=$data[0];
+    $aula=$data[1];
+    $newinventario=$data[2];
+    //
+    $this->bnmodel->updateinventario($piso,$aula,$newinventario);
+    echo "Listo";
+}
+
+
+ ?>
+<form action='' method="post">
+	<input type="text" name="idpiso" placeholder="Piso" value="<?php echo $idpiso;?>">
+	<input type="text" name="idaula" placeholder="Aula" value="<?php echo $idaula;?>">
+	<input type="text" name="idinventario"  size="100" placeholder="Inventario" value="<?php echo $idinventario;?>"><br>
+
+		<div align="center">
+		<br>
+		<input type="submit" name="search" value="Buscar">
+		<input type="submit" name="update" value="Actualizar">
+		</div>
+
+	</div>
+</form>

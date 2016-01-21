@@ -1,0 +1,71 @@
+
+<div align="center">
+<form action="http://localhost:100/prafinal/index.php/inicio3" method="post">
+        <input name='volver' type="submit" value="Volver">
+</form>
+</div>
+
+
+<br><br><b></b>
+<div align="center">
+    Acá puede Volver un aula disponible
+<form action="GetDatos" method="post">
+    Piso    <select name="episo">
+            <option>Elija</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            </select><br/>
+    Aula    <select name="eaula">
+            <option>Elija</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            </select><br/>
+    Hora    <select name="ehora">
+            <option>Elija</option>
+            <option value="6_8">6-8</option>
+            <option value="8_10">8-10</option>
+            <option value="10_12">10-12</option>
+            <option value="12_14">12-14</option>
+            <option value="14_16">14-16</option>
+            <option value="16_18">16-18</option>
+            </select><br/>
+        <input type="submit" value="Pasar a Ser Disponible">
+</form>
+</div>
+
+
+
+<br><br><b></b>
+<div align="center">
+<form action="" method="post">
+        <input name='listado' type="submit" value="Listar Inventario">
+</form>
+
+<?php
+if (isset($_POST["listado"])) {
+  echo strtoupper("Lista Completa De Inventarios de las salas");
+  $this->bnmodel->listarinventario1();
+  // print_r($inventario1);echo "<br>";
+  // $inventario2=$this->bnmodel->listarinventario2();
+  // print_r($inventario2);
+} ?>
+
+
+
+</div>
